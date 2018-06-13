@@ -10,4 +10,5 @@ target 'Weather' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'SwiftyGif'
   pod 'YNDropDownMenu'
+  pod 'IQKeyboardManagerSwift'
 end

@@ -37,5 +37,4 @@ class List: UITableView,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         customDelegate?.showDetails(city: CitiesData.list[indexPath.row])
     }
-
 }

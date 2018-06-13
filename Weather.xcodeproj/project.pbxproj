@@ -170,6 +170,7 @@
 			children = (
 				3E69397120CE9413002DE9DA /* Cell */,
 				3EFC05CD20CFD8D300E5BE67 /* List.xib */,
+				3E3C1B8D20CE61670078F558 /* Main.storyboard */,
 				3E3C1B9220CE61680078F558 /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -230,7 +231,6 @@
 				3E6939BD20CEABCD002DE9DA /* HourlyForecastInfos.xib */,
 				3E6939C520CEBC41002DE9DA /* DailyForecastInfos.xib */,
 				3E6939C920CEC661002DE9DA /* TextExtra.xib */,
-				3E3C1B8D20CE61670078F558 /* Main.storyboard */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -395,6 +395,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Weather/Pods-Weather-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/YNDropDownMenu/YNDropDownMenu.framework",
@@ -402,6 +403,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGif.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YNDropDownMenu.framework",

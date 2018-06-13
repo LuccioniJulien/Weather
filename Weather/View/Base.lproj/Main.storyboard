@@ -14,19 +14,40 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MapView" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
-                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satelliteFlyover" id="lzK-ML-4DI">
+                    <view key="view" contentMode="scaleToFill" id="1s6-NF-cER">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </mapView>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satelliteFlyover" translatesAutoresizingMaskIntoConstraints="NO" id="lzK-ML-4DI">
+                                <rect key="frame" x="0.0" y="64" width="375" height="547"/>
+                            </mapView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="iqR-Ft-i7d">
+                                <rect key="frame" x="0.0" y="611" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iqR-Ft-i7d" firstAttribute="top" secondItem="lzK-ML-4DI" secondAttribute="bottom" id="8xE-oe-7Dn"/>
+                            <constraint firstItem="lzK-ML-4DI" firstAttribute="trailing" secondItem="Qgj-aj-mkU" secondAttribute="trailing" id="9DK-fY-r7M"/>
+                            <constraint firstItem="iqR-Ft-i7d" firstAttribute="trailing" secondItem="Qgj-aj-mkU" secondAttribute="trailing" id="C9k-DK-m1E"/>
+                            <constraint firstItem="lzK-ML-4DI" firstAttribute="leading" secondItem="Qgj-aj-mkU" secondAttribute="leading" id="GFK-dA-8s6"/>
+                            <constraint firstItem="iqR-Ft-i7d" firstAttribute="leading" secondItem="Qgj-aj-mkU" secondAttribute="leading" id="Jkq-Qi-CNh"/>
+                            <constraint firstItem="lzK-ML-4DI" firstAttribute="top" secondItem="Qgj-aj-mkU" secondAttribute="top" id="K7W-yI-t3t"/>
+                            <constraint firstItem="iqR-Ft-i7d" firstAttribute="bottom" secondItem="Qgj-aj-mkU" secondAttribute="bottom" id="xlW-BC-2zP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Qgj-aj-mkU"/>
+                    </view>
                     <navigationItem key="navigationItem" id="cM9-sM-mWa"/>
                     <connections>
                         <outlet property="map" destination="lzK-ML-4DI" id="Zq8-np-K7k"/>
+                        <outlet property="searchBar" destination="iqR-Ft-i7d" id="AKj-Jj-Kbu"/>
                         <segue destination="Gni-oO-TxU" kind="show" identifier="SegueWeather" id="vl8-0q-U2N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="474" y="295"/>
+            <point key="canvasLocation" x="472.80000000000001" y="294.60269865067471"/>
         </scene>
         <!--Weather View-->
         <scene sceneID="oAV-p8-y7m">

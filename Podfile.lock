@@ -1,11 +1,13 @@
 PODS:
   - Alamofire (4.7.2)
+  - IQKeyboardManagerSwift (6.0.2)
   - SwiftyGif (4.1.0)
   - SwiftyJSON (4.1.0)
   - YNDropDownMenu (3.0.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - IQKeyboardManagerSwift
   - SwiftyGif
   - SwiftyJSON (~> 4.0)
   - YNDropDownMenu
@@ -13,16 +15,18 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - IQKeyboardManagerSwift
     - SwiftyGif
     - SwiftyJSON
     - YNDropDownMenu
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  IQKeyboardManagerSwift: 59d4b0e140bc546c3c76ae5bb35b3dafd10b8172
   SwiftyGif: d36c6dfb52e2ca1e48fe349d225f50ec4123ec85
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   YNDropDownMenu: 9421eb9c144448415d90141344a2cdbbaf11fc3c
 
-PODFILE CHECKSUM: 5c99e8014c86a6df85273b780e66d6d07dfb4a93
+PODFILE CHECKSUM: f36ccccec9322d6e8e06a9601cc29d673a373d62
 
 COCOAPODS: 1.5.3
