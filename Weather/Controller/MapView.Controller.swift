@@ -1,0 +1,77 @@
+//
+//  MapView.swift
+//  Weather
+//
+//  Created by Julien luccioni on 11/06/2018.
+//  Copyright © 2018 Julien luccioni. All rights reserved.
+//
+
+import UIKit
+import MapKit
+import YNDropDownMenu
+
+class MapView: UIViewController,MKMapViewDelegate,ListDelegate {
+
+    @IBOutlet var map: MKMapView!
+    
+    var selectedCity:City?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.navigationBar.backgroundColor = UIColor(red: 100.0/255.0, green: 130.0/255.0, blue: 230.0/255.0, alpha: 1.0)
+        
+        // set up the listView
+        let frame = CGRect(x: 0, y: 64, width: UIScreen.main.bounds.size.width, height: 40)
+        let list = Bundle.main.loadNibNamed("List", owner: nil, options: nil) as! [UIView]
+        (list[0] as! List).customDelegate = self
+        let view = YNDropDownMenu(frame:frame, dropDownViews: list, dropDownViewTitles: ["See all location"])
+        view.setImageWhen(normal: UIImage(named: "arrow_nor"), selected: UIImage(named: "arrow_sel"), disabled: UIImage(named: "arrow_dim"))
+        self.view.addSubview(view)
+        
+        // set up the annotations on the map
+        map.delegate = self
+        self.title = "Weather"
+        for city in CitiesData.list{
+            let pin = MKPointAnnotation()
+            pin.coordinate = city.coordinates
+            pin.title = city.name
+            map.addAnnotation(pin)
+        }
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        map.deselectAnnotation(view.annotation, animated: true)
+        performSegue(withIdentifier: "SegueWeather", sender: view)
+    }
+    
+    func showDetails(city:City) {
+        // delegate implementation
+        self.selectedCity = city
+        performSegue(withIdentifier: "SegueWeather", sender: view)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let nextView:WeatherView = segue.destination as? WeatherView{
+            
+            // if performSegue throught the list delegate
+            // selectedCity isn`t nil
+            if let city:City = self.selectedCity {
+                nextView.selectedCity = city
+                selectedCity = nil
+                return
+            }
+            
+            // if performSegue throught the Annotation
+            if let anoView:MKAnnotationView = sender as? MKAnnotationView{
+                nextView.selectedCity = City(name: ((anoView.annotation?.title)!)!, coordinates: (anoView.annotation?.coordinate)!)
+            }
+        }
+    }
+}
+
