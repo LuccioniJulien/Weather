@@ -26,20 +26,22 @@ class WeatherView: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         self.title = selectedCity?.name
         self.registerCell()
+        
         // set loading gif
         self.tbWeather.isHidden = true
         let gif = UIImage(gifName: "sun.gif")
         self.loadingGif.setGifImage(gif)
         self.loadingGif.loopCount = -1
+        
         // if call Api is succes
         let success:(Forecast)->() = { forecast in
             self.selectedCity!.forecast = forecast
             
+            // set up Extra forecast informations for the cells
             var firstExtra = ("Humidity",String(Int(forecast.humidity * 100)) + "%")
             let str:String = String(forecast.windSpeed).prefix(1) + " km/h"
             var secondExtra = ("Wind speed",str)
             self.extraForecast.append((firstExtra,secondExtra))
-            
             firstExtra = ("Pressure",String(forecast.pressure).prefix(4) + "hPa")
             secondExtra = ("UV Index",String(String(forecast.uvIndex).prefix(1)))
             self.extraForecast.append((firstExtra,secondExtra))
@@ -48,6 +50,7 @@ class WeatherView: UIViewController,UITableViewDelegate,UITableViewDataSource {
             self.tbWeather.isHidden = false
             self.loadingView.isHidden = true
         }
+        
         // if call Api fail
         let failure:(String)->() = { alert in
             let handler:(UIAlertAction)->() = { err in
@@ -59,6 +62,7 @@ class WeatherView: UIViewController,UITableViewDelegate,UITableViewDataSource {
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: handler))
             self.present(alert, animated: true)
         }
+        
         // call Api
         RequestManager.instance.getForecast(city:selectedCity!,success,failure)
 
@@ -75,7 +79,6 @@ class WeatherView: UIViewController,UITableViewDelegate,UITableViewDataSource {
         case 1:
             return 1
         case 2:
-            // selectedCity?.forecast?.hourlyInfo.count
             let nbCell:Int = selectedCity?.forecast?.hourlyInfo.count ?? 0
             return nbCell >= 0 && nbCell < 11 ? nbCell : 10
         case 3:

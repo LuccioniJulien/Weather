@@ -39,37 +39,27 @@ class Forecast {
         
         self.setHourlyInfo(json["hourly"]["data"].arrayValue)
         self.setDailyInfo(json["daily"]["data"].arrayValue)
-        
     }
     
     func setHourlyInfo(_ data:[JSON]){
-        
         for item in data {
-            
             let time:Double = item["time"].double ?? 0.0
             let icon:String = item["icon"].stringValue
             let humidity:Double = item["humidity"].double ?? 0.0
             let temperature:Double = item["temperature"].double ?? 0.0
             
             self.hourlyInfo.append((time,icon,humidity,temperature))
-            
         }
-        
     }
     
     func setDailyInfo(_ data:[JSON]){
-        
         for item in data{
-            
             let time:Double = item["time"].double ?? 0
             let icon:String = item["icon"].stringValue
             let temperatureLow:Double = item["apparentTemperatureLow"].double ?? 0.0
             let temperatureHight:Double = item["apparentTemperatureHigh"].double ?? 0.0
-            
             self.dailyInfo.append((time,icon,temperatureLow,temperatureHight))
-            
         }
-        
     }
     
 }

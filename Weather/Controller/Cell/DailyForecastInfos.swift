@@ -18,13 +18,11 @@ class DailyForecastInfos: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         self.selectionStyle = UITableViewCellSelectionStyle.none
-        // Configure the view for the selected state
     }
     
     func configure(infos:(Double,String,Double,Double)){

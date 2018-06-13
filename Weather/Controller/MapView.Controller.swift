@@ -24,7 +24,9 @@ class MapView: UIViewController,MKMapViewDelegate,ListDelegate {
         let frame = CGRect(x: 0, y: 64, width: UIScreen.main.bounds.size.width, height: 40)
         let list = Bundle.main.loadNibNamed("List", owner: nil, options: nil) as! [UIView]
         (list[0] as! List).customDelegate = self
-        let view = YNDropDownMenu(frame:frame, dropDownViews: list, dropDownViewTitles: ["See all location"])
+        // resize of the List in order to enable to scroll to the bottom
+        (list[0] as! List).frame = CGRect.init(x: 0, y: 104, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 104)
+        let view = YNDropDownMenu(frame:frame, dropDownViews: list, dropDownViewTitles: ["See all locations"])
         view.setImageWhen(normal: UIImage(named: "arrow_nor"), selected: UIImage(named: "arrow_sel"), disabled: UIImage(named: "arrow_dim"))
         self.view.addSubview(view)
         
@@ -42,7 +44,6 @@ class MapView: UIViewController,MKMapViewDelegate,ListDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
